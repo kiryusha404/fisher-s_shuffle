@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, k;
+    cin>>k>>n;
+    int *arr = new int[n-k];
+    
+    for(int i = 0; i <= n - k; i++){
+        arr[i] = i+k;
+    }
+    cout<<"Исходный массив:"<<endl;
+    for(int i = 0; i <= n-k; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    for (int i = 0; i <= n-1-k; i++)
+    {
+        int j = rand() % (n - k - i) + i;
+        int temp = arr[j]; 
+        arr[j] = arr[i]; 
+        arr[i] = temp; 
+    }
+    cout<<"Тасование фишера - Ейтса:"<<endl;
+    for(int i = 0; i <= n - k; i++){
+        cout<<arr[i]<<" ";
+    }
+}
